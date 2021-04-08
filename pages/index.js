@@ -1,9 +1,10 @@
-import Head from 'next/head'
+import Navbar  from '../components/navbar'
+import Body from '../components/home'
 import { getSortedPostsData } from '../lib/posts'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Date from '../components/date'
-import Layout, { siteTitle } from '../components/layout'
+import Header, {siteTitle } from '../components/header'
 import utilStyles from '../styles/utils.module.css'
 
 
@@ -17,40 +18,44 @@ import utilStyles from '../styles/utils.module.css'
 
 export default function Home({ allPostsData }) {
   return (
-    <div className={styles.container}>
-      <Layout home>
-      <Head>
+    <>
+      <Navbar>
+      <Header>
         <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
-      
-
+      </Header>
+      </Navbar>
+      <Body>
+      </Body>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Read{' '}
-          <Link href="/posts/first-post">
-            <a>the blog!</a>
-          </Link>
-        </h1>
+        <div className="section" id="home">        
+          <h1 className={styles.title}>
+            Read{' '}
+            <Link href="/posts/first-post">
+              <a>the blog!</a>
+            </Link>
+          </h1>
+        </div>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-        <li className={utilStyles.listItem} key={id}>
-        <Link href={`/posts/${id}`}>
-          <a>{title}</a>
-        </Link>
-        <br />
-        <small className={utilStyles.lightText}>
-          <Date dateString={date} />
-        </small>
-      </li>
+          <h2 className={utilStyles.headingLg}>Blog</h2>
+        
+          <ul className={utilStyles.list}>
+              {allPostsData.map(({ id, date, title }) => (
+            <div class="p-6 max-w-sm mx-auto bg-blue rounded-x1 shadow-md flex items-center space-x-4">
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link><br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            </div>
           ))}
-        </ul>
-      </section>
+          </ul>
+        </section>
       </main>
-      </Layout>
-    </div>
+      </>
   )
 }
 
