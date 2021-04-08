@@ -31,11 +31,6 @@ const Home = () => {
                       : "and experience"}
                   </h1>
                 </div>
-                <p>{data.headerParagraph}</p>
-                <a href='https://anthonym5.github.io/my-awesome-blog/'
-                  className="primary-btn">
-                  Check The Blog!
-                </a>
             </div>
           </div>
         </div>

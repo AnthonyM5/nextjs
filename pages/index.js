@@ -1,4 +1,3 @@
-import Navbar  from '../components/navbar'
 import Body from '../components/home'
 import { getSortedPostsData } from '../lib/posts'
 import styles from '../styles/Home.module.css'
@@ -19,12 +18,10 @@ import utilStyles from '../styles/utils.module.css'
 export default function Home({ allPostsData }) {
   return (
     <>
-      <Navbar>
       <Header>
         <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
       </Header>
-      </Navbar>
       <Body>
       </Body>
       <main className={styles.main}>
