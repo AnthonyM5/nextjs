@@ -22,31 +22,30 @@ export default function Home({ allPostsData }) {
       <About/>
       <Skills>
       </Skills>
-      <main className="container mx-auto">
+      <main className="container mx-auto text-center">
         <div className="section" id="home">        
           <h1 className="font-bold text-5xl">
             Read{' '}
             <Link href="/posts/first-post">
-              <a>the blog!</a>
+              <a className="text-center">the blog!</a>
             </Link>
           </h1>
         </div>
         <section className="blog-grid grid grid-cols-3 gap-4 mx-auto">
-          <h2 className="font-bold text-2xl">Blog</h2>
-          <ul className="p-2">
+          <div className="p-2 flex content-center gap-4">
               {allPostsData.map(({ id, date, title }) => (
-            <div class="p-6 max-w-sm mx-auto bg-blue rounded-x1 shadow-md flex items-center space-x-4">
-              <li className="m-0.5" key={id}>
+            <div className="p-6 max-w-sm rounded-x1 shadow-md">
+              <p className="font-bold" key={id}>
                 <Link href={`/posts/${id}`}>
                   <a>{title}</a>
                 </Link><br />
                 <small className="font-light text-sml">
                   <Date dateString={date} />
                 </small>
-              </li> 
+              </p> 
             </div>
           ))}
-          </ul>
+          </div>
         </section>
       </main>
       <Footer>

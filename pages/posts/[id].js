@@ -1,4 +1,4 @@
-import Layout from '../../components/layout'
+import Link from 'next/link'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
@@ -7,18 +7,25 @@ import utilStyles from '../../styles/utils.module.css'
 
 export default function Post({ postData }) {
     return (
-      <Layout>
+      <>
         <Head>
           <title>{postData.title}</title>
         </Head>
-        <article>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <div className={utilStyles.lightText}>
+        <article className="prose lg:prose-xl container mx-auto">
+          <h1 className="text-5xl font-bold p-1">{postData.title}</h1>
+          <div className="p-1">
             <Date dateString={postData.date} />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div 
+          className=""
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div>
+        </div>
         </article>
-      </Layout>
+        <Link href="/">
+            <a className="p-4">← Back to home</a>
+          </Link>
+        </>
     )
   }
 

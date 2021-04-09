@@ -1,57 +1,21 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar  from '../components/navbar'
-// import styles from './layout.module.css'
-// import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Head from "next/head";
+import Footer from "./footer";
 
-const name = 'Anthony Mai'
-export const siteTitle = 'Anthony\'s Portfolio'
-
-export default function Layout({ children, home }) {
+function Layout({ children, pageTitle }) {
   return (
-    <div> 
-      <header>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              height={144}
-              width={144}
-              alt={name}
-            />
-            <h1>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/images/profile.jpg"
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2>
-              <Link href="/">
-                <a>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
-    </div>
-  )
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{pageTitle}</title>
+      </Head>
+      <div className="flex flex-col min-h-screen">
+        <main className="w-11/12 md:w-full max-w-2xl mx-auto my-8 flex-grow">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </>
+  );
 }
+
+export default Layout;
