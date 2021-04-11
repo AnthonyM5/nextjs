@@ -8,8 +8,8 @@ const Body = () => {
     <div className="container mx-auto">
       <div className="about-section grid grid-cols-3 gap-4">
         <div className="content col-span-2">
-            <h1 className="text-5xl font-bold">About Me</h1>
-          <p className="">
+            <h1 className="text-5xl font-bold p-2">About Me</h1>
+          <p className="font-sans">
             {data.aboutParaOne}
             <br></br>
             <br></br>
@@ -19,9 +19,9 @@ const Body = () => {
             {data.aboutParaThree}
           </p>
         </div>
-        <div className="image-container container mx-auto place-content-center">
+        <div className="image-container container mx-auto place-content-center ">
           <img 
-          className="content-center"
+          className="object-contain content-center rounded-lg"
           src={data.aboutImage.props.src}alt="about"></img>
         </div>
       </div>
