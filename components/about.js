@@ -2,7 +2,6 @@
 import data from '../data'
 
 const Body = () => {
-  console.log(data.about)
   return (
     <div className="section" id="about">
     <div className="container mx-auto">
